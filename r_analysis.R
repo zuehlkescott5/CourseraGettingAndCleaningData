@@ -8,6 +8,7 @@ getwd()
 #install.packages("reshape2")
 
 #Load libraries
+
 library(data.table)
 library(dplyr)
 
@@ -64,6 +65,7 @@ colnames(act.Train) <- "ActivityID"
 activity.Train <- merge(act.Train, activityLabels, by = "ActivityID")
 
 trainer <- cbind(subject.Train, activity.Train, feat.Train)
+
 
 # Read in test data, add column names and column-bind to create Tester dataset.
 
