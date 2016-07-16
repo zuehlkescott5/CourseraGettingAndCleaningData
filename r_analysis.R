@@ -1,9 +1,4 @@
 
-#Set working directory
-setwd("H:\\CourseraGettingAndCleaningData")
-#Confirm working directory correctly assigned
-getwd()
-
 # Ensure required packages installed on machine
 # install.packages("data.table")
 # install.packages("dplyr")
@@ -116,3 +111,5 @@ write.table(TargetData, file = "tidy.txt", row.names = FALSE)
 tidy2Data <- aggregate(. ~Subject + Activity, TargetData, mean)
 tidy2Data <- tidy2Data[order(tidy2Data$Subject,tidy2Data$Activity),]
 write.table(tidy2Data, file = "tidy2.txt", row.names = FALSE)
+
+str(tidy2Data)
