@@ -5,12 +5,13 @@ setwd("H:\\CourseraGettingAndCleaningData")
 getwd()
 
 # Ensure required packages installed on machine
-#install.packages("reshape2")
+# install.packages("memisc")
 
 #Load libraries
 
 library(data.table)
 library(dplyr)
+library(memisc)
 
 datafile <- "Alldata.zip"
 dataURL <-
@@ -113,3 +114,5 @@ names(TargetData)<-gsub("^t", "Time", names(TargetData))
 tidyData <- aggregate(. ~Subject + Activity, TargetData, mean)
 tidyData <- tidyData[order(tidyData$Subject,tidyData$Activity),]
 write.table(tidyData, file = "Tidy.txt", row.names = FALSE)
+
+codebook(tidyData)
