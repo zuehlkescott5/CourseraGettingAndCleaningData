@@ -7,16 +7,20 @@
 * README.md
 * CodeBook.md
 * run_analysis.R
+* tidy.txt
+* tidy2.txt
+* UCI Har Dataset (contains test and train data).
+* Alldata.zip
 
 ### run_analysis.R objectives
 
 * You should create one R script called run_analysis.R that does the following: 
 
-** Merges the training and the test sets to create one data set.
-** Extracts only the measurements on the mean and standard deviation for each measurement.
-** Uses descriptive activity names to name the activities in the data set
-** Appropriately labels the data set with descriptive variable names.
-** From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+* Merges the training and the test sets to create one data set.
+* Extracts only the measurements on the mean and standard deviation for each measurement.
+* Uses descriptive activity names to name the activities in the data set
+* Appropriately labels the data set with descriptive variable names.
+* From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 ### run_analysis.R goals
 
@@ -34,11 +38,12 @@ Replace activity keys with activity labels from activity_labels.txt file.
 
 #### Step 4:
 
-Rename all feature columns with easier-to-read column names.  This will be tidy.txt.
+Rename all feature columns with easier-to-read column names.  This data frame will be written to text file tidy.txt.
 
 #### Step 5:
 
-Create a new data frame by finding the mean for each combination of subject and label. It's done by aggregate() function
-Final step:
+From data frame that created tidy file, create aggregated file of means
+
+#### Step 6:
 
 Write the new tidy set into a text file called tidy2.txt, formatted similarly to the original files.

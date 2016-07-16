@@ -24,15 +24,14 @@
 
 ### Output from run_analysis.R
 
-#### tidyData.txt is a 10299x68 data frame.
+#### tidyData.txt is a 10299x88 data frame.
 
 * The first column contains subject IDs.
 * The second column contains activity names.
-* The last 66 columns are measurements.
-* Subject IDs are integers between 1 and 30.
+* The last 86 columns are measurements.
 
-#### tidyData2.txt is a 180x68 data frame.
+#### tidyData2.txt is a 40x88 data frame.
 
 * The first column contains subject IDs.
 * The second column contains activity names.
-* The averages for each of the 66 attributes are in columns 3-68.
+* The averages for each of the 86 attributes are in columns 3-88.
