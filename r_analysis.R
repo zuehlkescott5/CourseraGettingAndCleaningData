@@ -5,13 +5,13 @@ setwd("H:\\CourseraGettingAndCleaningData")
 getwd()
 
 # Ensure required packages installed on machine
-# install.packages("memisc")
+# install.packages("data.table")
+# install.packages("dplyr")
 
 #Load libraries
 
 library(data.table)
 library(dplyr)
-library(memisc)
 
 datafile <- "Alldata.zip"
 dataURL <-
@@ -94,7 +94,7 @@ TargetColumns <- c(1,2,3,ModelDataSetMeanSTD)
 TargetData <- ModelDataSet[,TargetColumns]
 TargetData$ActivityID <- NULL
 
-# Rename columns to have more descriptive titles
+# Rename columns to have more descriptive titles, then write data to file tidy.txt
 
 names(TargetData)<-gsub("Gyro", "Gyroscope", names(TargetData))
 names(TargetData)<-gsub("BodyBody", "Body", names(TargetData))
@@ -109,10 +109,10 @@ names(TargetData)<-gsub("gravity", "Gravity", names(TargetData))
 names(TargetData)<-gsub("Acc", "Accelerometer", names(TargetData))
 names(TargetData)<-gsub("^t", "Time", names(TargetData))
 
-# Aggregate data to create tidyData file, and write to Directory as txt file.
+write.table(TargetData, file = "tidy.txt", row.names = FALSE)
 
-tidyData <- aggregate(. ~Subject + Activity, TargetData, mean)
-tidyData <- tidyData[order(tidyData$Subject,tidyData$Activity),]
-write.table(tidyData, file = "Tidy.txt", row.names = FALSE)
+# Aggregate data to create tidy2Data file, and write to Directory as txt file.
 
-codebook(tidyData)
+tidy2Data <- aggregate(. ~Subject + Activity, TargetData, mean)
+tidy2Data <- tidy2Data[order(tidy2Data$Subject,tidy2Data$Activity),]
+write.table(tidy2Data, file = "tidy2.txt", row.names = FALSE)
